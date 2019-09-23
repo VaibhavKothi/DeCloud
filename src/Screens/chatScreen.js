@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
 export default class chatScreen extends React.Component {
   static navigationOptions = {
     title : 'Chat',
@@ -10,7 +9,6 @@ export default class chatScreen extends React.Component {
     },
     headerTintColor: '#efefef',
   };
-
   render(){
     const { navigation } = this.props;
     const name = navigation.getParam('name', 'Guest');
