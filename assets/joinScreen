@@ -1,0 +1,70 @@
+import React from 'react';
+import { StyleSheet,
+  Button,
+  View,
+  SafeAreaView,
+  Text,
+  TextInput,
+  Alert, } from 'react-native';
+
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Join',
+  };
+  return (
+    <View style={styles.full}>
+      <View style={styles.input}>
+        <View style={styles.channel}>
+          <Text style={{color: '#212121', fontSize: 15, padding: 4,}}>Channel Name</Text>
+          <TextInput  style={styles.textBox}
+            placeholder="eg. Fun Talk"
+            onChangeText={(host) => this.setState({ host })}/>
+        </View>
+        <View style={styles.username}>
+          <Text style={{color: '#212121', fontSize: 15, padding: 4,}}>Your Name</Text>
+          <TextInput style={styles.textBox} placeholder="eg. Tony Stark"/>
+        </View>
+        <Button color='#000000' title="Join" onPress={() => Alert.alert('Sure '+host+' ?')}/>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  full: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+    width: 400,
+    backgroundColor: '#212121',
+  },
+  textBox: {
+    height: 50,
+    width: 300,
+    paddingLeft: 10,
+    fontSize: 20,
+    color: '#7a7a7a',
+    backgroundColor: '#efefef',
+    borderWidth: 4,
+    borderColor: '#000000',
+  },
+  input: {
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    borderWidth: 5,
+    borderColor: '#000000',
+    padding: 40,
+    paddingLeft: 25,
+    paddingRight: 25,
+  },
+  channel: {
+    height: 80,
+    paddingBottom: 100,
+  },
+  username: {
+    height: 80,
+    paddingBottom: 125,
+  }
+});
+export default joinScreen;
