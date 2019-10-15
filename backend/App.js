@@ -3,7 +3,7 @@ const Swarm = require('discovery-swarm')
 const defaults = require('dat-swarm-defaults')
 const getPort = require('get-port')
 const readline = require('readline')
- 
+
 /**
  * Here we will save our TCP peer connections
  * using the peer id as key: { peer_id: TCP_Connection }
@@ -91,22 +91,24 @@ const sw = Swarm(config)
     const peerId = info.id.toString('hex')
     log(`Connected #${seq} to peer: ${peerId}`)
     askUser()
+    askUser()
+    askUser()
     // Keep alive TCP connection with peer
-//    if (info.initiator) {
-//      try {
-//        conn.setKeepAlive(true, 600)
-//      } catch (exception) {
-//        log('exception', exception)
-//      }
-//    }
+    if (info.initiator) {
+      try {
+        conn.setKeepAlive(true, 600)
+      } catch (exception) {
+        log('exception', exception)
+      }
+    }
     conn.on('data', data => {
       // Here we handle incomming messages
       log(
         'Received Message from peer ' + peerId,
         '----> ' + data.toString()
       )
-      askUser()
     })
+    askUser()
     conn.on('close', () => {
       // Here we handle peer disconnection
       log(`Connection ${seq} closed, peer id: ${peerId}`)
@@ -115,7 +117,7 @@ const sw = Swarm(config)
         delete peers[peerId]
       }
     })
-
+    askUser()
     // Save the connection
     if (!peers[peerId]) {
       peers[peerId] = {}

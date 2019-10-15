@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 export default class chatScreen extends React.Component {
   static navigationOptions = {
-    title : 'Chat',
+    title : 'Files',
     headerStyle: {
       backgroundColor: '#212121',
     },
